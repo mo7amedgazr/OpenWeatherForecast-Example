@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="weather"
+            type="com.example.weatherforecast.domain.current.entity.CurrentWeatherEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.current.CurrentWeatherFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/topGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCurrentDate"
+            style="@style/TextTitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toTopOf="@id/topGuideline" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTemTitle"
+            style="@style/TextTitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="@string/temp"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvCurrentDate" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTempValue"
+            style="@style/TextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{weather.temp.toString()}"
+            app:layout_constraintBottom_toBottomOf="@id/tvTemTitle"
+            app:layout_constraintStart_toEndOf="@id/tvTemTitle"
+            app:layout_constraintTop_toTopOf="@id/tvTemTitle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHumidityTitle"
+            style="@style/TextTitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/humidity"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvTemTitle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHumidityValue"
+            style="@style/TextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{weather.humidity.toString()}"
+            app:layout_constraintBottom_toBottomOf="@id/tvHumidityTitle"
+            app:layout_constraintStart_toEndOf="@id/tvHumidityTitle"
+            app:layout_constraintTop_toTopOf="@id/tvHumidityTitle" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWindTitle"
+            style="@style/TextTitleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/wind"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvHumidityTitle" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWindValue"
+            style="@style/TextValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{weather.wind.toString()}"
+            app:layout_constraintBottom_toBottomOf="@id/tvWindTitle"
+            app:layout_constraintStart_toEndOf="@id/tvWindTitle"
+            app:layout_constraintTop_toTopOf="@id/tvWindTitle" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="120dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="50dp"
+            app:imageUrl="@{weather.icon}"
+            app:layout_constraintEnd_toEndOf="@id/endGuideline"
+            app:layout_constraintStart_toStartOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/tvWindTitle" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
